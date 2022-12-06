@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 // Importar lo necesario para trabajar con formularios
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -10,12 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  loginForm: FormGroup = new FormGroup({});
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService
-  ) {}
+  loginForm: FormGroup = new FormGroup({});
+  @Output() loginAction: EventEmitter<{}> = new EventEmitter<{}>();
+
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -37,8 +36,8 @@ export class LoginFormComponent implements OnInit {
   submitLogin() {
     if (this.loginForm.valid) {
       console.table(this.loginForm.value);
-      // TODO: Petición a AuthService
-      this.loginForm.reset();
+      this.loginAction.emit(this.loginForm.value);
+      //this.loginForm.reset();
     }
   }
 }

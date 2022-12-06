@@ -13,6 +13,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { ContactDetailPageComponent } from './pages/contact-detail-page/contact-detail-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { NombreCompletoPipe } from './pipes/nombre-completo.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     ContactsPageComponent,
     ContactDetailPageComponent,
     LoginFormComponent,
+    NombreCompletoPipe,
   ],
   imports: [
     BrowserModule,

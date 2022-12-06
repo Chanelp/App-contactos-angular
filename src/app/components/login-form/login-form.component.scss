@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   margin: 100px 0;
-  background-color: rgba(93, 23, 185, 0.445);
+  background-color: rgba(96, 22, 192, 0.445);
+  border-radius: 14px;
 }
 
 // Modificamos los estilos de card de Angular Material
 mat-card {
-  max-width: 400px;
-  margin: 2em auto;
+  max-width: 500px;
+  margin: 3em;
   text-align: center;
 }
 
