@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,9 +12,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { ContactDetailPageComponent } from './pages/contact-detail-page/contact-detail-page.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NotFoundPageComponent,
     ContactsPageComponent,
     ContactDetailPageComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // Formularios reactivos
+    ReactiveFormsModule,
+    // Módulo personalizado de Angular Material
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
