@@ -4,6 +4,9 @@
   <!-- TODO: pipe para la unión de valores -->
   <!-- Agregando Material -->
   <mat-card class="random-contact-card">
+    <div mat-card-avatar>
+      <img [src]="randomContact.picture.thumbnail" class="random-contact-avatar">
+    </div>
     <mat-card-header>
       <!-- <div mat-card-avatar class="example-header-image"></div> -->
       <mat-card-title
