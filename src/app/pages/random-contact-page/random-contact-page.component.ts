@@ -23,8 +23,11 @@ export class RandomContactPageComponent implements OnInit {
   }
 
   obtenerNuevoContacto() {
-    this.randomUser.obtenerRandomContact().subscribe((response: Results) => {
-      this.contact = response.results[0]; // Se lo pasamos al random contact
-    });
+    this.randomUser.obtenerRandomContact().subscribe(
+      (response: Results) => {
+        this.contact = response.results[0]; // Se lo pasamos al random contact
+      },
+      (error) => console.error(`Error: ${error}`)
+    );
   }
 }
