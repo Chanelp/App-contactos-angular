@@ -2,7 +2,9 @@ button {
   padding: 0.6rem;
   margin-left: 1rem;
   background-color: paleturquoise;
+  color: rgba(0, 0, 0, 0.76);
   font-size: 1rem;
+  font-weight: bold;
   border: none;
   border-radius: 14px;
   cursor: pointer;
@@ -10,4 +12,5 @@ button {
 
 button:hover{
   background-color: rgb(184, 255, 255);
+  color: black;
 }

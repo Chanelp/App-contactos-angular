@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 import { IRandomContact } from '../models/randomusers';
 
 @Injectable({
@@ -27,8 +27,8 @@ export class RandomUserService {
 
   obtenerRandomContact(): Observable<any> {
     return this.http.get('https://randomuser.me/api').pipe(
-      // Si algo sale mal cuando estamos susbcritos, recibiríamos el error
-      catchError(this.handleError)
+      retry(2), // N° de reintento de peticiones
+      catchError(this.handleError) // Sacamos error si algo falla
     );
   }
 

@@ -24,10 +24,11 @@ export class RandomContactPageComponent implements OnInit {
 
   obtenerNuevoContacto() {
     this.randomUser.obtenerRandomContact().subscribe(
-      (response: Results) => {
-        this.contact = response.results[0]; // Se lo pasamos al random contact
-      },
-      (error) => console.error(`Error: ${error}`)
-    );
+      {
+        next: (response: Results) => this.contact = response.results[0],
+        error: (error) => console.error(`Error: ${error}`),
+        complete: () => console.info("Petición de random contact terminada")
+      }
+    )
   }
 }
