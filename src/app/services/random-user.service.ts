@@ -33,17 +33,12 @@ export class RandomUserService {
     );
   }
 
-  obtenerRandomContacts(n: number): Observable<Results[]> {
-    const params: HttpParams = new HttpParams().set("results", n);
+  obtenerRandomContacts(n: number, sexo?: string): Observable<Results> {
+    let params: HttpParams = new HttpParams().set("results", n);
 
-    return this.http.get<Results[]>('https://randomuser.me/api', {params: params} ).pipe(
-      retry(2),
-      catchError((this.handleError))
-    );
-  }
-
-  obtenerRandomContactsporGenero(sexo: string): Observable<Results>{
-    const params: HttpParams = new HttpParams().set("gender", sexo);
+    if(sexo){
+      params = params.append("gender", sexo);
+    }
 
     return this.http.get<Results>('https://randomuser.me/api', {params: params} ).pipe(
       retry(2),

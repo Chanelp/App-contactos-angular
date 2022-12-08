@@ -1,5 +1,5 @@
-<ng-container *ngIf="contacto.email"; else errorContacto>
-  <h1>Contacto: {{id}}</h1>
+<ng-container *ngIf="contacto"; else errorContacto>
+  <h1>Contacto: {{contacto.id.value}}</h1>
   <h2>Nombre: {{ contacto | nombreCompleto }} </h2>
   <h3>Email: {{contacto.email}}</h3>
 </ng-container>

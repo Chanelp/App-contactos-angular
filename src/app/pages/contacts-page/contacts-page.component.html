@@ -2,17 +2,20 @@
 
 <!-- Listar los contactos y poder navegar al pinchar en uno de ellos al detalle del contacto-->
 
-<div *ngFor="let contacto of listaContactos; let i = index">
-  <div routerLink="{{ contacto.id }}" [state]="{ data: contacto, filtro: filtroSexo }">
-    <h6 class="contacto">{{ contacto.nombre }}</h6>
-    <button (click)="volverAHome(contacto)">
+<div *ngFor="let contacto of listaRandomContacts; let i = index">
+  <div routerLink="{{ contacto.id.name }}" [state]="{ data: contacto, filtro: filtroSexo }">
+    <h6 class="contacto">
+      {{ contacto.name.first }}
+      {{ contacto.name.last }}
+    </h6>
+    <button mat-raised-button (click)="volverAHome(contacto)">
       Seleccionar este amigo imaginario
     </button>
   </div>
 </div>
 
 <ng-container
-  *ngIf="filtroSexo == 'mujer' || filtroSexo == 'hombre'; else completo"
+  *ngIf="filtroSexo == 'female' || filtroSexo == 'male'; else completo"
 >
   <p>Mostrando Lista filtrada por: "{{ filtroSexo }}"</p>
 </ng-container>
