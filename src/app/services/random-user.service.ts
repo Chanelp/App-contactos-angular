@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { IRandomContact } from '../models/randomusers';
+import { IRandomContact, Results } from '../models/randomusers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RandomUserService {
+
   constructor(private http: HttpClient) {}
 
   // Manejo de errores
@@ -25,12 +26,29 @@ export class RandomUserService {
     );
   }
 
-  obtenerRandomContact(): Observable<any> {
-    return this.http.get('https://randomuser.me/api').pipe(
+  obtenerRandomContact(): Observable<Results> {
+    return this.http.get<Results>('https://randomuser.me/api').pipe(
       retry(2), // N° de reintento de peticiones
       catchError(this.handleError) // Sacamos error si algo falla
     );
   }
 
-  obtenerContacts(n: number): void {}
+  obtenerRandomContacts(n: number): Observable<Results[]> {
+    const params: HttpParams = new HttpParams().set("results", n);
+
+    return this.http.get<Results[]>('https://randomuser.me/api', {params: params} ).pipe(
+      retry(2),
+      catchError((this.handleError))
+    );
+  }
+
+  obtenerRandomContactsporGenero(sexo: string): Observable<Results>{
+    const params: HttpParams = new HttpParams().set("gender", sexo);
+
+    return this.http.get<Results>('https://randomuser.me/api', {params: params} ).pipe(
+      retry(2),
+      catchError((this.handleError))
+    );
+  }
+
 }
