@@ -3,11 +3,11 @@
 
 <!--Si he seleccionado un contacto en la lista, aparece nombre n la home-->
 <ng-container *ngIf="contactoSeleccionado;else noSeleccionado">
-  <h4>Tu amigo invisible es: {{contactoSeleccionado.name.first}}</h4>
+  <h4>Tu amigo es: {{contactoSeleccionado.name.first}}</h4>
 </ng-container>
 <ng-template #noSeleccionado>
   <div>
-    <p>Selecciona a tu amigo invisible</p>
+    <p>Selecciona a tu amigo</p>
   </div>
 </ng-template>
 
@@ -15,6 +15,6 @@
 
 <div>
   <p>Filtros</p>
-  <a [routerLink]="['/contacts']" [queryParams]="{sexo: 'female'}">AMIGAS | </a>
-  <a [routerLink]="['/contacts']" [queryParams]="{sexo: 'male'}">| AMIGOS</a>
+  <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'female'}">AMIGAS | </a>
+  <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'male'}">| AMIGOS</a>
 </div>

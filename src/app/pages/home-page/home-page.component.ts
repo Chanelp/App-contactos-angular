@@ -33,6 +33,6 @@ export class HomePageComponent implements OnInit {
       }
     }
 
-    this.router.navigate(['contacts'], navigationExtras);
+    this.router.navigate(['dashboard/contacts'], navigationExtras);
   }
 }
