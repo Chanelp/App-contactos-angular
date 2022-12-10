@@ -13,6 +13,7 @@ import { RandomUserService } from 'src/app/services/random-user.service';
 export class ContactsPageComponent implements OnInit {
   filtroSexo: string = 'todos';
   listaRandomContacts: IRandomContact[] = [];
+  cargando: boolean = true;
 
   constructor(
     private router: Router,
@@ -38,8 +39,10 @@ export class ContactsPageComponent implements OnInit {
               console.log(this.listaRandomContacts);
             },
             error: (error) => console.error(`Error: ${error}`),
-            complete: () =>
-              console.info('Petición de random contacts terminada'),
+            complete: () =>{
+              console.info('Petición de random contacts terminada');
+              this.cargando = false;
+            }
           });
         }
         else {
@@ -54,8 +57,10 @@ export class ContactsPageComponent implements OnInit {
               console.log(this.listaRandomContacts);
             },
             error: (error) => console.error(`Error: ${error}`),
-            complete: () =>
-              console.info('Petición de random contacts terminada'),
+            complete: () =>{
+              console.info('Petición de random contacts terminada');
+              this.cargando = false;
+            }
           });
         }
       }

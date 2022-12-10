@@ -8,6 +8,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { RandomContactPageComponent } from './pages/random-contact-page/random-contact-page.component';
+import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,11 @@ const routes: Routes = [
         component: RandomContactPageComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: 'tasks',
+        component: TasksPageComponent,
+        canActivate: [AuthGuard]
+      }
     ],
   },
   {
