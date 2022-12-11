@@ -1,7 +1,7 @@
-# Fundamentos de Angular
+# Gestor de contactos en Angular
 ### Sitio desplagado -> https://gestion-de-contactos-angular.web.app/login
 ### Apuntes Notion -> https://fine-antlion-55c.notion.site/Angular-2d9e382ee5a64aa882a8f23c48dc8f0b
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
+### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
 
 ## Development server
 
