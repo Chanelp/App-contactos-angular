@@ -1,5 +1,5 @@
-<h1>Juego del Amigo Invisible</h1>
-<h3>Bienvenido/a!</h3>
+<h1>Administra tus contactos.</h1>
+<h3>¡Bienvenido/a devuelta!</h3>
 
 <!--Si he seleccionado un contacto en la lista, aparece nombre n la home-->
 <ng-container *ngIf="contactoSeleccionado;else noSeleccionado">
@@ -7,11 +7,11 @@
 </ng-container>
 <ng-template #noSeleccionado>
   <div>
-    <p>Selecciona a tu amigo</p>
+    <p>Selecciona a un amigo.</p>
   </div>
 </ng-template>
 
-<button mat-raised-button="primary" (click)="navegarAContactos()">Ver todos tus contactos</button>
+<button mat-raised-button="primary" (click)="navegarAContactos()">Ver todos tus contactos.</button>
 
 <div>
   <p>Filtros</p>
